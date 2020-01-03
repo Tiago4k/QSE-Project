@@ -1,4 +1,22 @@
-Stormcrawler to use with Elasticsearch. 
+Stormcrawler to use with Elasticsearch on a Virtual Machine. 
+
+Step 1: Start by cloning this repo into the VM.
+
+``` sh
+git clone https://github.com/Tiago4k/QSE-Project.git
+```
+
+Step 2: 
+``` sh
+cd QSE-Project/VM-Scripts
+```
+
+Step 3: 
+``` sh
+sh packages-install.sh
+```
+
+
 
 ## Prerequisite:
  * Elasticsearch 7.x
