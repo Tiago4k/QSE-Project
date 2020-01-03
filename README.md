@@ -1,4 +1,4 @@
-Stormcrawler to use with Elasticsearch on a Virtual Machine.
+# Stormcrawler to use with Elasticsearch on a Virtual Machine.
 
 Step 1: Start by cloning this repo into the VM.
 
@@ -48,8 +48,13 @@ Step 6:
 $ sh ~/QSE-Project/VM-Scripts/process.sh
 ```
 
+## Elasticsearch and Kibana are now live. 
+## You can access them by visiting:
 
-## Prerequisite:
+Elasticsearch: http://<vm-ip-address>:9200
+Kibana: http://<vm-ip-address>:5601
+
+# Prerequisite:
  * Elasticsearch 7.x
  * Apache Storm (v1.2.3)
  * Apache Storm added as a PATH variable
