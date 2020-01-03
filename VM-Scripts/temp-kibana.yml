@@ -1,0 +1,3 @@
+server.port: "${server_port}"
+server.host: “${server_host}”
+elasticsearch.hosts: [${"${elastic_host}"}]

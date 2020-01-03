@@ -16,10 +16,12 @@ echo "deb https://artifacts.elastic.co/packages/oss-7.x/apt stable main" | sudo 
 
 # Configure elasticsearch.yml with:
 
-sudo echo "node.name: es-vm" >> /etc/elasticsearch/elasticsearch.yml
-sudo echo "network.host: "0.0.0.0""  >> /etc/elasticsearch/elasticsearch.yml
-sudo echo	"discovery.seed_hosts: ["127.0.0.1"]"  >> /etc/elasticsearch/elasticsearch.yml
-sudo echo	"cluster.initial_master_nodes: ["es-vm"]" >> /etc/elasticsearch/elasticsearch.yml
+###### some process.sh file #######
+
+# sudo echo "node.name: es-vm" >> /etc/elasticsearch/elasticsearch.yml
+# sudo echo "network.host: "0.0.0.0""  >> /etc/elasticsearch/elasticsearch.yml
+# sudo echo	"discovery.seed_hosts: ["127.0.0.1"]"  >> /etc/elasticsearch/elasticsearch.yml
+# sudo echo	"cluster.initial_master_nodes: ["es-vm"]" >> /etc/elasticsearch/elasticsearch.yml
 
 
 sudo /bin/systemctl daemon-reload
@@ -33,9 +35,12 @@ sudo apt-get install -yy kibana
 sudo vi /etc/kibana/kibana.yml
 
 # Configure kibana.yml with:
-sudo echo	"server.port: "5601"" >> /etc/kibana/kibana.yml
-sudo echo	"server.host: “0.0.0.0”" >> /etc/kibana/kibana.yml
-sudo echo	"elasticsearch.hosts: ["http://127.0.0.1:9200"]" >> /etc/kibana/kibana.yml
+
+###### some process.sh file #######
+
+# sudo echo	"server.port: "5601"" >> /etc/kibana/kibana.yml
+# sudo echo	"server.host: “0.0.0.0”" >> /etc/kibana/kibana.yml
+# sudo echo	"elasticsearch.hosts: ["http://127.0.0.1:9200"]" >> /etc/kibana/kibana.yml
 
 sudo /bin/systemctl daemon-reload
 sudo /bin/systemctl enable kibana.service

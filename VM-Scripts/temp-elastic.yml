@@ -1,0 +1,4 @@
+node.name: ${node_name}
+network.host: “${network_host}”
+discovery.seed_hosts: [${"${seed_host}"}]
+cluster.initial_master_nodes: [${"${master_node}"}]
