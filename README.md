@@ -31,14 +31,14 @@ $ sudo vim /etc/elasticsearch/elasticsearch.yml
 
 # Add Elasticsearch config
 node.name: es-vm
-network.host: "0.0.0.0"
-discovery.seed_hosts: ["127.0.0.1"]
+network.host: 0.0.0.0
+discovery.seed_hosts: ["127.0.0.1", "[::1]"]
 cluster.initial_master_nodes: ["es-vm"]
 
 $ sudo vim /etc/kibana/kibana.yml
 
 # Add Kibana config
-  server_port: "5601"
+  server_port: 5601
   server_host: "0.0.0.0"
   elasticsearch.hosts: ["http://127.0.0.1:9200"]
 ```
