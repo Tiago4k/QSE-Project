@@ -12,7 +12,7 @@ sudo rm -f /etc/elasticsearch/elasticsearch.yml temp.yml
   echo "EOF";
 ) >temp.yml
 . temp.yml
-cat /etc/elasticsearch/elasticsearch.yml
+sudo cat /etc/elasticsearch/elasticsearch.yml
 
 sudo rm -f /etc/kibana/kibana.yml temp.yml
 ( echo "cat &lt;&lt;EOF &gt;kibana.yml";
@@ -20,4 +20,4 @@ sudo rm -f /etc/kibana/kibana.yml temp.yml
   echo "EOF";
 ) >temp.yml
 . temp.yml
-cat /etc/kibana/kibana.yml
+sudo cat /etc/kibana/kibana.yml
