@@ -1,4 +1,4 @@
-Stormcrawler to use with Elasticsearch on a Virtual Machine. 
+Stormcrawler to use with Elasticsearch on a Virtual Machine.
 
 Step 1: Start by cloning this repo into the VM.
 
@@ -6,15 +6,38 @@ Step 1: Start by cloning this repo into the VM.
 $ git clone https://github.com/Tiago4k/QSE-Project.git
 ```
 
-Step 2: 
+Step 2:
 ``` sh
 $ cd QSE-Project/VM-Scripts
 ```
 
-Step 3: 
+Step 3:
 ``` sh
-$ . ./packages-install.sh
+$ sh elk-packages.sh
 ```
+
+Step 4:
+``` sh
+$ cd ~
+$ cd /opt
+$ sh ~/QSE-Project/VM-Scripts/storm-package.sh
+$ source ~/.bash_profile
+```
+
+Step 5:
+Copy the contents of elk-config to their respective yml files:
+``` sh
+$ sudo vim /etc/elasticsearch/elasticsearch.yml
+$ sudo vim /etc/kibana/kibana.yml
+```
+
+Step 6:
+``` sh
+$ cd ~/QSE-Project/VM-Scripts
+$ sh process.sh
+```
+
+
 
 
 
@@ -23,7 +46,7 @@ $ . ./packages-install.sh
  * Apache Storm (v1.2.3)
  * Apache Storm added as a PATH variable
  * Elasticsearch running on a local server
- 
+
 Additional URLs to be crawled can be added by modifying:
 ``` sh
 seeds.txt
