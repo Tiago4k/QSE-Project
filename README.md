@@ -25,7 +25,7 @@ $ source ~/.bash_profile
 ```
 
 Step 5:
-Copy the contents of elk-config to their respective yml files:
+Add the following to each of the .yml files:
 ``` sh
 $ sudo vim /etc/elasticsearch/elasticsearch.yml
 
@@ -48,10 +48,12 @@ Step 6:
 $ sh ~/QSE-Project/VM-Scripts/process.sh
 ```
 
-### Elasticsearch and Kibana are now live. 
+### Elasticsearch and Kibana are now live.
 > Elasticsearch: http://"vm-ip-address":9200
-  
+
 > Kibana: http://"vm-ip-address":5601
+
+
 
 ## Prerequisite:
  * Elasticsearch 7.x
