@@ -8,7 +8,7 @@ $ git clone https://github.com/Tiago4k/QSE-Project.git
 
 Step 2:
 ``` sh
-$ cd QSE-Project/vm-scripts
+$ cd QSE-Project/scripts
 ```
 
 Step 3:
@@ -20,7 +20,7 @@ Step 4:
 ``` sh
 $ cd ~
 $ cd /opt
-$ sh ~/QSE-Project/vm-scripts/storm-package.sh
+$ sh ~/QSE-Project/scripts/storm-package.sh
 $ source ~/.bash_profile
 ```
 
@@ -45,7 +45,7 @@ elasticsearch.hosts: ["http://127.0.0.1:9200"]
 
 Step 6:
 ``` sh
-$ sh ~/QSE-Project/vm-scripts/process.sh
+$ sh ~/QSE-Project/scripts/process.sh
 ```
 
 ### Elasticsearch and Kibana are now live.
