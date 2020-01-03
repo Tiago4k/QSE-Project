@@ -38,9 +38,9 @@ cluster.initial_master_nodes: ["es-vm"]
 $ sudo vim /etc/kibana/kibana.yml
 
 # Add Kibana config
-  server_port: 5601
-  server_host: "0.0.0.0"
-  elasticsearch.hosts: ["http://127.0.0.1:9200"]
+server.port: 5601
+server.host: "0.0.0.0"
+elasticsearch.hosts: ["http://127.0.0.1:9200"]
 ```
 
 Step 6:
