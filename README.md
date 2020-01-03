@@ -54,5 +54,5 @@ $ sh ~/QSE-Project/VM-Scripts/process.sh
 > Kibana: http://"vm-ip-address":5601
 
 
-For information on how to crawler URLs visit:
+For information on how to crawl URLs with stormcralwer visit:
 https://github.com/Tiago4k/QSE-Project/tree/master/es-stormcrawler
