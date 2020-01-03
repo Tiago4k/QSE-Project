@@ -27,30 +27,26 @@ $ source ~/.bash_profile
 Step 5:
 Copy the contents of elk-config to their respective yml files:
 ``` sh
-# Add Elasticsearch config
-  node.name: es-vm
-  network.host: "0.0.0.0"
-  discovery.seed_hosts: ["127.0.0.1"]
-  cluster.initial_master_nodes: ["es-vm"]
-
 $ sudo vim /etc/elasticsearch/elasticsearch.yml
+
+# Add Elasticsearch config
+node.name: es-vm
+network.host: "0.0.0.0"
+discovery.seed_hosts: ["127.0.0.1"]
+cluster.initial_master_nodes: ["es-vm"]
+
+$ sudo vim /etc/kibana/kibana.yml
 
 # Add Kibana config
   server_port: "5601"
   server_host: "0.0.0.0"
   elasticsearch.hosts: ["http://127.0.0.1:9200"]
-
-$ sudo vim /etc/kibana/kibana.yml
 ```
 
 Step 6:
 ``` sh
-$ cd ~/QSE-Project/VM-Scripts
-$ sh process.sh
+$ sh ~/QSE-Project/VM-Scripts/process.sh
 ```
-
-
-
 
 
 ## Prerequisite:
