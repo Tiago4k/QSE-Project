@@ -23,7 +23,6 @@ Step 4:
 $ cd ~
 $ cd /opt
 $ sh ~/QSE-Project/scripts/storm-package.sh
-$ source ~/.bash_profile
 ```
 
 Step 5:

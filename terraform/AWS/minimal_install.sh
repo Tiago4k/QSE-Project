@@ -6,4 +6,5 @@ git clone https://github.com/Tiago4k/QSE-Project.git
 cd QSE-Project/scripts
 sh elk-packages.sh
 cd /opt
-sh /QSE-Project/scripts/storm-package.sh
+sudo sh /QSE-Project/scripts/storm-package.sh
+source ~/.bash_profile
