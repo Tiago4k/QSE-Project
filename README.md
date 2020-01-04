@@ -1,6 +1,6 @@
 ## Stormcrawler to use with Elasticsearch on a Virtual Machine.
 
-**If using Terraform to provision a VM skip to use Option 2**
+**If using Terraform to provision a VM, follow the steps in Option 2**
 
 ---
 
