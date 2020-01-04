@@ -1,7 +1,10 @@
 ## Stormcrawler to use with Elasticsearch on a Virtual Machine.
 
-**If using Terraform to provision a VM skip to Step 4**
+**If using Terraform to provision a VM skip to use Option 2**
 
+---
+
+### Option 1:
 Step 1: Start by cloning this repo into the VM.
 
 ``` sh
@@ -48,6 +51,41 @@ Step 6:
 ``` sh
 $ sh ~/QSE-Project/scripts/process.sh
 ```
+
+---
+
+### Option 2:
+Step 1:
+``` sh
+$ cd /opt
+$ sh /QSE-Project/scripts/storm-package.sh
+$ source ~/.bash_profile
+```
+
+Step 2:
+Add the following to each of the .yml files:
+``` sh
+$ sudo vim /etc/elasticsearch/elasticsearch.yml
+
+# Add Elasticsearch config
+node.name: es-vm
+network.host: 0.0.0.0
+discovery.seed_hosts: ["127.0.0.1", "[::1]"]
+cluster.initial_master_nodes: ["es-vm"]
+
+$ sudo vim /etc/kibana/kibana.yml
+
+# Add Kibana config
+server.port: 5601
+server.host: "0.0.0.0"
+elasticsearch.hosts: ["http://127.0.0.1:9200"]
+```
+
+Step 3:
+``` sh
+$ sh /QSE-Project/scripts/process.sh
+```
+
 
 ### Elasticsearch and Kibana are now live.
 > Elasticsearch: http://"vm-ip-address":9200
