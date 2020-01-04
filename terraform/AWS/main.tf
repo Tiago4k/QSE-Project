@@ -17,6 +17,12 @@ resource "aws_security_group" "es-stormcrawler-ssh-http" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+    ingress {
+    from_port   = 9300
+    to_port     = 9300
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
   ingress {
     from_port   = 5601
     to_port     = 5601
