@@ -1,6 +1,6 @@
 ## Stormcrawler to use with Elasticsearch on a Virtual Machine.
 
-**If using Terraform to provision a VM skip to Step 5**
+**If using Terraform to provision a VM skip to Step 4**
 
 Step 1: Start by cloning this repo into the VM.
 
@@ -20,17 +20,12 @@ $ sh elk-packages.sh
 
 Step 4:
 ``` sh
-$ cd ~
 $ cd /opt
 $ sh ~/QSE-Project/scripts/storm-package.sh
-```
-
-Step 5:
-``` sh
 $ source ~/.bash_profile
 ```
 
-Step 6:
+Step 5:
 Add the following to each of the .yml files:
 ``` sh
 $ sudo vim /etc/elasticsearch/elasticsearch.yml
