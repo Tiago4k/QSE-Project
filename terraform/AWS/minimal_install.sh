@@ -7,4 +7,3 @@ cd QSE-Project/scripts
 sh elk-packages.sh
 cd /opt
 sudo sh /QSE-Project/scripts/storm-package.sh
-source ~/.bash_profile
