@@ -7,3 +7,5 @@ terraform.tfstate
 terraform.tfstate.backup
 
 CREDENTIALS_FILE.json
+
+terraform.tfvars
