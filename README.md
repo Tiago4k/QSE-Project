@@ -88,8 +88,7 @@ $ sh /QSE-Project/scripts/process.sh
 
 
 ### Elasticsearch and Kibana are now live.
-> Elasticsearch: http://"vm-ip-address":9200
-
+> Elasticsearch: http://"vm-ip-address":9200 <br />
 > Kibana: http://"vm-ip-address":5601
 
 
