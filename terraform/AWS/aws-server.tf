@@ -34,7 +34,7 @@ resource "aws_security_group" "es-stormcrawler-ssh-http" {
 
 resource "aws_instance" "es-stormcrawler" {
   ami             = "ami-03ef731cc103c9f09"
-  instance_type   = "t2.micro"
+  instance_type   = "t2.large"
   security_groups = ["${aws_security_group.es-stormcrawler-ssh-http.name}"]
   key_name        = "stormcrawler-terraform"
   user_data       = "${file("minimal_install.sh")}"
