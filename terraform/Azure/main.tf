@@ -35,8 +35,17 @@ resource "azurerm_network_interface" "main" {
     name                          = "testconfiguration1"
     subnet_id                     = "${azurerm_subnet.internal.id}"
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id          = "${azurerm_public_ip.es-stormcrawler-pip.id}"
   }
 }
+
+resource "azurerm_public_ip" "es-stormcrawler-pip" {
+  name                = "es-stormcrawler-pip"
+  resource_group_name = "${azurerm_resource_group.es-group.name}"
+  location            = "${azurerm_resource_group.es-group.location}"
+  allocation_method   = "Dynamic"
+}
+
 resource "azurerm_network_security_group" "es-security" {
   name                = "es-security-group"
   location            = "${azurerm_resource_group.es-group.location}"
@@ -91,5 +100,12 @@ resource "azurerm_virtual_machine" "main" {
   }
   tags = {
     Owner = "Tiago Ramalho"
+  }
+
+    os_profile {
+    computer_name  = "es-stormcrawler-vm"
+    admin_username = "<username>"
+    admin_password = "<password>"
+    custom_data = "${file("minimal_install.sh")}"
   }
 }
