@@ -38,6 +38,8 @@ node.name: es-vm
 network.host: 0.0.0.0
 discovery.seed_hosts: ["127.0.0.1", "[::1]"]
 cluster.initial_master_nodes: ["es-vm"]
+http.cors.enabled : true
+http.cors.allow-origin : "*"
 
 $ sudo vim /etc/kibana/kibana.yml
 
@@ -72,6 +74,8 @@ node.name: es-vm
 network.host: 0.0.0.0
 discovery.seed_hosts: ["127.0.0.1", "[::1]"]
 cluster.initial_master_nodes: ["es-vm"]
+http.cors.enabled : true
+http.cors.allow-origin : "*"
 
 $ sudo vim /etc/kibana/kibana.yml
 
