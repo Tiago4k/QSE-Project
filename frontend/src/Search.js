@@ -34,10 +34,11 @@ class Search extends Component {
         <input
           name="text"
           type="text"
-          placeholder="Search"
+          placeholder="search..."
           onChange={event => this.handleOnChange(event)}
           value={this.state.searchValue}
         />
+        <div id='main'>
         <button onClick={this.handleSearch}>QSE Search</button>
         {this.state.hits ? (
           <div id="results-container">
@@ -47,13 +48,14 @@ class Search extends Component {
                 <br />
                 {hit._source.description}
                 <br />
-                {hit._source.url}
+                <a href={hit._source.url}>{hit._source.url}</a>
               </div>
             ))}
           </div>
-        ) : (
+          ) : (
           <p>No results found</p>
         )}
+        </div>
       </div>
     );
   }
