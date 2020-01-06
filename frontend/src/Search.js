@@ -4,6 +4,7 @@ import "./Search.css";
 class Search extends Component {
   state = {
     searchValue: "",
+    queryParam: "title",
     hits: []
   };
 
@@ -16,14 +17,18 @@ class Search extends Component {
   };
 
   makeApiCall = searchInput => {
-    var searchUrl = `http://104.155.39.39:9200/content/_search?q=content:${searchInput}`;
+    const queryParam = this.state.queryParam;
+    var searchUrl = `http://104.155.39.39:9200/content/_search?q=${queryParam}:${searchInput}`;
     fetch(searchUrl)
       .then(response => {
         return response.json();
       })
       .then(jsonData => {
         this.setState({ hits: jsonData.hits.hits });
-        console.log(this.state.hits);
+        if(this.state.hits.length === 0){
+          this.setState({ queryParam: "content" });
+          this.makeApiCall(this.state.searchValue);
+        }
       });
   };
 
