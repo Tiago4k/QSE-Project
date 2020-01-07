@@ -13,18 +13,21 @@ class Search extends Component {
   };
 
   handleSearch = () => {
-    this.makeApiCall(this.state.searchValue);
+    if(this.state.searchValue){
+      this.makeApiCall(this.state.searchValue);
+    }
   };
 
   makeApiCall = searchInput => {
     const queryParam = this.state.queryParam;
-    var searchUrl = `http://104.155.39.39:9200/content/_search?q=${queryParam}:${searchInput}`;
+    var searchUrl = `http://35.241.225.226:9200/content/_search?q=${queryParam}:${searchInput}`;
     fetch(searchUrl)
       .then(response => {
         return response.json();
       })
       .then(jsonData => {
         this.setState({ hits: jsonData.hits.hits });
+
         if(this.state.hits.length === 0){
           this.setState({ queryParam: "content" });
           this.makeApiCall(this.state.searchValue);
@@ -45,7 +48,7 @@ class Search extends Component {
         />
         <div id='main'>
         <button onClick={this.handleSearch}>QSE Search</button>
-        {this.state.hits ? (
+        {this.state.hits !==0 ? (
           <div id="results-container">
             {this.state.hits.map((hit, index) => (
               <div class="single-result" key={index}>
