@@ -1,6 +1,7 @@
 ## Stormcrawler to use with Elasticsearch on a Virtual Machine.
 
 Option 1 and 2 on work for setting up a single node cluster. For a multi-node cluster follow Option 3.
+
 **If using Terraform to provision a VM, follow the steps in Option 2**
 
 ---
@@ -89,6 +90,12 @@ Step 3:
 ``` sh
 sh /QSE-Project/scripts/process.sh
 ```
+
+---
+
+### Option 3 - Multi-node Cluster
+
+
 
 
 ### Elasticsearch and Kibana are now live.
