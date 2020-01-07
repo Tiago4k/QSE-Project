@@ -8,30 +8,30 @@
 Step 1: Start by cloning this repo into the VM.
 
 ``` sh
-$ git clone https://github.com/Tiago4k/QSE-Project.git
+git clone https://github.com/Tiago4k/QSE-Project.git
 ```
 
 Step 2:
 ``` sh
-$ cd QSE-Project/scripts
+cd QSE-Project/scripts
 ```
 
 Step 3:
 ``` sh
-$ sh elk-packages.sh
+sh elk-packages.sh
 ```
 
 Step 4:
 ``` sh
-$ cd /opt
-$ sh ~/QSE-Project/scripts/storm-package.sh
-$ source ~/.bash_profile
+cd /opt
+sh ~/QSE-Project/scripts/storm-package.sh
+source ~/.bash_profile
 ```
 
 Step 5:
 Add the following to each of the .yml files:
 ``` sh
-$ sudo vim /etc/elasticsearch/elasticsearch.yml
+sudo vim /etc/elasticsearch/elasticsearch.yml
 
 # Add Elasticsearch config
 node.name: es-vm
@@ -41,7 +41,7 @@ cluster.initial_master_nodes: ["es-vm"]
 http.cors.enabled : true
 http.cors.allow-origin : "*"
 
-$ sudo vim /etc/kibana/kibana.yml
+sudo vim /etc/kibana/kibana.yml
 
 # Add Kibana config
 server.port: 5601
@@ -51,7 +51,7 @@ elasticsearch.hosts: ["http://127.0.0.1:9200"]
 
 Step 6:
 ``` sh
-$ sh ~/QSE-Project/scripts/process.sh
+sh ~/QSE-Project/scripts/process.sh
 ```
 
 ---
@@ -59,15 +59,15 @@ $ sh ~/QSE-Project/scripts/process.sh
 ### Option 2:
 Step 1:
 ``` sh
-$ cd /opt
-$ sh /QSE-Project/scripts/storm-package.sh
-$ source ~/.bash_profile
+cd /opt
+sh /QSE-Project/scripts/storm-package.sh
+source ~/.bash_profile
 ```
 
 Step 2:
 Add the following to each of the .yml files:
 ``` sh
-$ sudo vim /etc/elasticsearch/elasticsearch.yml
+sudo vim /etc/elasticsearch/elasticsearch.yml
 
 # Add Elasticsearch config
 node.name: es-vm
@@ -77,7 +77,7 @@ cluster.initial_master_nodes: ["es-vm"]
 http.cors.enabled : true
 http.cors.allow-origin : "*"
 
-$ sudo vim /etc/kibana/kibana.yml
+sudo vim /etc/kibana/kibana.yml
 
 # Add Kibana config
 server.port: 5601
@@ -87,7 +87,7 @@ elasticsearch.hosts: ["http://127.0.0.1:9200"]
 
 Step 3:
 ``` sh
-$ sh /QSE-Project/scripts/process.sh
+sh /QSE-Project/scripts/process.sh
 ```
 
 
