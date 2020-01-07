@@ -1,9 +1,9 @@
 ## Stormcrawler to use with Elasticsearch on a Virtual Machine.
 
+Option 1 and 2 on work for setting up a single node cluster. For a multi-node cluster follow Option 3.
 **If using Terraform to provision a VM, follow the steps in Option 2**
 
 ---
-
 ### Option 1:
 Step 1: Start by cloning this repo into the VM.
 
