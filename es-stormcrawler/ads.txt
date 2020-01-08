@@ -1,7 +1,7 @@
 "domain": "autotrader.co.uk",
 "title": "Auto Trader UK - Find New & Used Cars for Sale",
 "description": "Find your next car with Auto Trader UK, the official #1 site to buy and sell new and used cars. Over 500000 cars online. Simple, easy, quick!",
-"keywords": ["cars","vehicles","motor","ferrari","lamborghini","sports cars"],
+"keywords": ["car","cars","vehicles","motor","ferrari","lamborghini","sports cars"],
 "url": "https://www.autotrader.co.uk"
 
 

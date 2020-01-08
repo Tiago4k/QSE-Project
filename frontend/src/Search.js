@@ -5,6 +5,7 @@ class Search extends Component {
   state = {
     searchValue: "",
     queryParam: "title",
+    adHits: [],
     hits: []
   };
 
@@ -13,7 +14,7 @@ class Search extends Component {
   };
 
   handleSearch = () => {
-    if(this.state.searchValue){
+    if (this.state.searchValue) {
       this.makeApiCall(this.state.searchValue);
     }
   };
@@ -21,6 +22,16 @@ class Search extends Component {
   makeApiCall = searchInput => {
     const queryParam = this.state.queryParam;
     var searchUrl = `http://35.195.144.170:9200/content/_search?q=${queryParam}:${searchInput}`;
+    var adsUrl = `http://35.195.144.170:9200/adverts/_search?q=keywords:${searchInput}`;
+
+    fetch(adsUrl)
+      .then(response => {
+        return response.json();
+      })
+      .then(jsonData => {
+        this.setState({ adHits: jsonData.hits.hits });
+      });
+
     fetch(searchUrl)
       .then(response => {
         return response.json();
@@ -28,7 +39,7 @@ class Search extends Component {
       .then(jsonData => {
         this.setState({ hits: jsonData.hits.hits });
 
-        if(this.state.hits.length === 0){
+        if (this.state.hits.length === 0) {
           this.setState({ queryParam: "content" });
           this.makeApiCall(this.state.searchValue);
         }
@@ -46,23 +57,39 @@ class Search extends Component {
           onChange={event => this.handleOnChange(event)}
           value={this.state.searchValue}
         />
-        <div id='main'>
-        <button onClick={this.handleSearch}>QSE Search</button>
-        {this.state.hits !==0 ? (
-          <div id="results-container">
-            {this.state.hits.map((hit, index) => (
-              <div class="single-result" key={index}>
-                {hit._source.title}
-                <br />
-                {hit._source.description}
-                <br />
-                <a href={hit._source.url}>{hit._source.url}</a>
-              </div>
-            ))}
-          </div>
+        <div id="main">
+          <button onClick={this.handleSearch}>QSE Search</button>
+          {this.state.adHits !== 0 ? (
+            <div className="results-container">
+              {this.state.adHits.map((adHit, index) => (
+                <div className="single-result" key={index}>
+                  <b>Ad:</b>
+                  {adHit._source.title}
+                  <br />
+                  <i>{adHit._source.description}</i>
+                  <br />
+                  <a href={adHit._source.url}>{adHit._source.url}</a>
+                </div>
+              ))}
+            </div>
           ) : (
-          <p>No results found</p>
-        )}
+            <br />
+          )}
+          {this.state.hits !== 0 ? (
+            <div clasName="results-container">
+              {this.state.hits.map((hit, index) => (
+                <div className="single-result" key={index}>
+                  {hit._source.title}
+                  <br />
+                  <i>{hit._source.description}</i>
+                  <br />
+                  <a href={hit._source.url}>{hit._source.url}</a>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p>No results found</p>
+          )}
         </div>
       </div>
     );
