@@ -163,3 +163,50 @@ curl $ESCREDENTIALS -s -XPUT $ESHOST/content -H 'Content-Type: application/json'
 			}
 	}
 }'
+
+# deletes and recreates a doc index with a bespoke schema
+
+curl $ESCREDENTIALS -s -XDELETE "$ESHOST/adverts*/" >  /dev/null
+
+echo ""
+echo "Deleted adverts index"
+
+echo "Creating adverts index with mapping"
+
+curl $ESCREDENTIALS -s -XPUT $ESHOST/adverts -H 'Content-Type: application/json' -d '
+{
+	"settings": {
+		"index": {
+			"number_of_shards": 5,
+			"number_of_replicas": 1,
+			"refresh_interval": "60s"
+		}
+	},
+	"mappings": {
+			"_source": {
+				"enabled": true
+			},
+			"properties": {
+				"host": {
+					"type": "keyword",
+					"index": "true",
+					"store": true
+				},
+				"title": {
+					"type": "text",
+					"index": "true",
+					"store": true
+				},
+				"description": {
+					"type": "keyword",
+					"index": "false",
+					"store": true
+				},
+				"url": {
+					"type": "keyword",
+					"index": "false",
+					"store": true
+				}
+			}
+	}
+}'

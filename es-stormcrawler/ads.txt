@@ -1,0 +1,19 @@
+"domain": "autotrader.co.uk",
+"title": "Auto Trader UK - Find New & Used Cars for Sale",
+"description": "Find your next car with Auto Trader UK, the official #1 site to buy and sell new and used cars. Over 500000 cars online. Simple, easy, quick!",
+"keywords": ["cars","vehicles","motor","ferrari","lamborghini","sports cars"],
+"url": "https://www.autotrader.co.uk"
+
+
+"domain": "o2.co.uk",
+"title": "O2 | Mobile Phones, Mobile Broadband and Sim Only Deals ...",
+"description": "O2 is a leading provider of mobile phones, mobile broadband and sim only deals. Explore My O2, Priority, O2 Refresh, O2 WiFi and much more at O2.co.uk.",
+"keywords" : ["phones", "mobile phones", "iphone", "samsung", "apple", "android"],
+"url": "https://www.o2.co.uk"
+
+
+"domain": "nasa.gov",
+"title": "Careers at NASA: Explore the Extraordinary, Every Day | NASA",
+"description": "NASA Employees Click Here to Search Jobs. NASA is more than astronauts. We are scientists, engineers, IT specialists, human resources ...",
+"keywords" : ["space","nasa","spacex","moon"],
+"url": "https://www.nasa.gov/careers"
