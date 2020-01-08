@@ -17,7 +17,7 @@ resource "aws_security_group" "es-stormcrawler-ssh-http" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
-    ingress {
+  ingress {
     from_port   = 9300
     to_port     = 9300
     protocol    = "tcp"
@@ -38,9 +38,9 @@ resource "aws_security_group" "es-stormcrawler-ssh-http" {
   }
 }
 
-resource "aws_instance" "es-stormcrawler" {
+resource "aws_instance" "es-stormcrawler-node-4" {
   ami             = "ami-03ef731cc103c9f09"
-  instance_type   = "t2.large"
+  instance_type   = "t2.medium"
   security_groups = ["${aws_security_group.es-stormcrawler-ssh-http.name}"]
   key_name        = "stormcrawler-terraform"
   user_data       = "${file("minimal_install.sh")}"
