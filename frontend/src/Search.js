@@ -20,7 +20,7 @@ class Search extends Component {
 
   makeApiCall = searchInput => {
     const queryParam = this.state.queryParam;
-    var searchUrl = `http://35.241.225.226:9200/content/_search?q=${queryParam}:${searchInput}`;
+    var searchUrl = `http://35.195.144.170:9200/content/_search?q=${queryParam}:${searchInput}`;
     fetch(searchUrl)
       .then(response => {
         return response.json();
