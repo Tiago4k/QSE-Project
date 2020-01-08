@@ -1,7 +1,7 @@
 provider "google" {
- credentials = "${file("CREDENTIALS_FILE.json")}"
- project     = "searchengine-262517"
- region      = "europe-west1"
+  credentials = "${file("CREDENTIALS_FILE.json")}"
+  project     = "searchengine-262517"
+  region      = "europe-west1"
 }
 
 resource "google_compute_instance" "es-stormcrawler-terra" {
@@ -15,7 +15,7 @@ resource "google_compute_instance" "es-stormcrawler-terra" {
     initialize_params {
       image = "ubuntu-os-cloud/ubuntu-1604-lts"
       size  = "200"
-      type = "pd-ssd"
+      type  = "pd-ssd"
     }
   }
 
@@ -23,8 +23,8 @@ resource "google_compute_instance" "es-stormcrawler-terra" {
     network = "default"
 
     access_config {
-     // Include this section to give the VM an external ip address
-   }
+      // Include this section to give the VM an external ip address
+    }
   }
 
   metadata = {
@@ -34,16 +34,17 @@ resource "google_compute_instance" "es-stormcrawler-terra" {
   metadata_startup_script = "${file("minimal_install.sh")}"
 }
 
+
 resource "google_compute_firewall" "http" {
- name    = "es-server-firewall"
- network = "default"
+  name    = "es-server-firewall"
+  network = "default"
 
 
- allow {
-   protocol = "tcp"
-   ports    = ["9200", "9300", "5601"]
- }
+  allow {
+    protocol = "tcp"
+    ports    = ["9200", "9300", "5601"]
+  }
 
- source_ranges = ["0.0.0.0/0"]
- target_tags = ["server"]
+  source_ranges = ["0.0.0.0/0"]
+  target_tags   = ["server"]
 }
