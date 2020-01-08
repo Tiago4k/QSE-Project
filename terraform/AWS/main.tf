@@ -38,7 +38,7 @@ resource "aws_security_group" "es-stormcrawler-ssh-http" {
   }
 }
 
-resource "aws_instance" "es-stormcrawler-node-4" {
+resource "aws_instance" "es-stormcrawler-terra" {
   ami             = "ami-03ef731cc103c9f09"
   instance_type   = "t2.medium"
   security_groups = ["${aws_security_group.es-stormcrawler-ssh-http.name}"]
