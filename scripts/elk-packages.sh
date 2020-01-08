@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Install Script for Elasticsearch, Kibana, Apache Storm
+# Install Script for Elasticsearch and Kibana
 sudo apt-get update -qq
 sudo apt-get install -yy default-jre
 sudo apt-get install -yy unzip
