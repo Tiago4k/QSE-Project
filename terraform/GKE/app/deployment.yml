@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: qse-app
+  namespace: default
+
+spec:
+  #Run two instances of our application
+  replicas: 2
+  selector:
+    matchLabels:
+      run: qse-app
+  template:
+    metadata:
+      labels:
+        run: qse-app
+    spec:
+      containers:
+        - image: eu.gcr.io/searchengine-262517/qse-frontend
+          imagePullPolicy: Always
+          name: qse-app
+          ports:
+            - containerPort: 80
+              protocol: TCP
