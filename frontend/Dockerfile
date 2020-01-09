@@ -3,15 +3,15 @@ FROM tiangolo/node-frontend:10 as build-stage
 
 WORKDIR /app
 
-COPY package*.json /app/
+COPY package*.json yarn.lock /app/
 
-RUN npm install
+RUN yarn
 
 COPY ./ /app/
 
-RUN npm run build
+RUN yarn build
 
-# Production stage, based on Nginx 
+# Production stage, based on Nginx
 FROM nginx:1.15
 
 COPY --from=build-stage /app/build/ /usr/share/nginx/html
