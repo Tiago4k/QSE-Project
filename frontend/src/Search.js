@@ -21,8 +21,8 @@ class Search extends Component {
 
   makeApiCall = searchInput => {
     const queryParam = this.state.queryParam;
-    var searchUrl = `http://35.195.144.170:9200/content/_search?q=${queryParam}:${searchInput}`;
-    var adsUrl = `http://35.195.144.170:9200/adverts/_search?q=keywords:${searchInput}`;
+    var searchUrl = `http://35.228.179.156:8881/content/_search?q=${queryParam}:${searchInput}`;
+    var adsUrl = `http://35.228.179.156:8881/adverts/_search?q=keywords:${searchInput}`;
 
     fetch(adsUrl)
       .then(response => {
@@ -76,7 +76,7 @@ class Search extends Component {
             <br />
           )}
           {this.state.hits !== 0 ? (
-            <div clasName="results-container">
+            <div className="results-container">
               {this.state.hits.map((hit, index) => (
                 <div className="single-result" key={index}>
                   {hit._source.title}

@@ -31,11 +31,11 @@ button {
   cursor: pointer;
   font-size: 18px;
 }
-#results-container {
+results-container {
   margin-top: 60px;
   border: 0.1px solid #353636;
 }
 .single-result {
-  box-shadow: 0.5px 0.5px grey;
-  margin: 10px;
+  box-shadow: 0.3px 0.3px grey;
+  margin: 6px;
 }
