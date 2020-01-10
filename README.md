@@ -188,6 +188,11 @@ server.host: "0.0.0.0"
 elasticsearch.hosts: ["http://<node1_internal_ip>:9200", "http://<node2_internal_ip>:9200"]
 ```
 
+```sh
+sudo /bin/systemctl daemon-reload
+sudo /bin/systemctl enable kibana.service && sudo /bin/systemctl start kibana.service
+```
+
 
 ### Elasticsearch and Kibana are now live.
 > Elasticsearch: http://"vm-ip-address":9200 <br />
@@ -196,3 +201,7 @@ elasticsearch.hosts: ["http://<node1_internal_ip>:9200", "http://<node2_internal
 
 For information on how to crawl URLs with stormcralwer visit:
 https://github.com/Tiago4k/QSE-Project/tree/master/es-stormcrawler
+
+Resources:
+https://medium.com/@tplmaps/minimal-installation-of-elasticsearch-cluster-in-production-251fc4e5fac1 <br />
+https://tecadmin.net/setup-elasticsearch-on-ubuntu/ <br />
