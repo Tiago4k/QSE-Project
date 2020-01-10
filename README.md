@@ -176,7 +176,7 @@ sudo /bin/systemctl daemon-reload
 sudo /bin/systemctl enable elasticsearch.service && sudo /bin/systemctl start elasticsearch.service
 ```
 
-#### To add Kibana support, create a new VM that will only be running Kibana with the following:
+#### To add Kibana support, create a new VM that will only be running Kibana with the following configuration:
 
 ```sh
 sudo vim /etc/kibana/kibana.yml
