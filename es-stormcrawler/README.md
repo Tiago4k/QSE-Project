@@ -5,7 +5,7 @@
 - Apache Storm added as a PATH variable
 - Elasticsearch running on a local server
 
-Replace all instances of "localhost" in the es-conf.yaml file and in ES_IndexInit.sh with the internal ip of the VM its running on.
+Replace all instances of "localhost" in the **es-conf.yaml** file and in **ES_IndexInit.sh** with the internal ip of the VM its running on.
 
 Additional URLs to be crawled can be added by modifying:
 
