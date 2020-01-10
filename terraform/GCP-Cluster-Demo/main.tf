@@ -179,6 +179,73 @@ resource "google_compute_instance" "es-stormcrawler-node-5" {
 }
 
 
+/*
+  Kibana
+*/
+
+resource "google_compute_instance" "kibana" {
+  name         = "kibana"
+  machine_type = "n1-highmem-2"
+  zone         = "europe-west6-a"
+
+  tags = ["server"]
+
+  boot_disk {
+    initialize_params {
+      image = "ubuntu-os-cloud/ubuntu-1604-lts"
+      size  = "30"
+      type  = "pd-ssd"
+    }
+  }
+
+  network_interface {
+    network = "default"
+
+    access_config {
+      // Include this section to give the VM an external ip address
+    }
+  }
+
+  metadata = {
+    sshKey = "tiago4k:${file("~/.ssh/id_rsa.pub")}"
+  }
+
+  metadata_startup_script = "${file("minimal_install.sh")}"
+}
+
+
+/*
+  Proxy Server
+*/
+
+resource "google_compute_instance" "es-proxy" {
+  name         = "es-proxy"
+  machine_type = "n1-standard-8"
+  zone         = "europe-north1-a"
+
+  tags = ["server"]
+
+  boot_disk {
+    initialize_params {
+      image = "ubuntu-os-cloud/ubuntu-1604-lts"
+      size  = "10"
+      type  = "pd-ssd"
+    }
+  }
+
+  network_interface {
+    network = "default"
+
+    access_config {
+      // Include this section to give the VM an external ip address
+    }
+  }
+
+  metadata = {
+    sshKey = "tiago4k:${file("~/.ssh/id_rsa.pub")}"
+  }
+
+}
 
 /*
   Firewall rules for all nodes
