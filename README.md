@@ -178,6 +178,11 @@ sudo /bin/systemctl enable elasticsearch.service && sudo /bin/systemctl start el
 
 #### To add Kibana support, create a new VM that will only be running Kibana with the following configuration:
 
+Step 1: 
+Download and install Kibana: <br/>
+https://www.elastic.co/guide/en/kibana/current/deb.html 
+
+Step 2:
 ```sh
 sudo vim /etc/kibana/kibana.yml
 
@@ -188,6 +193,7 @@ server.host: "0.0.0.0"
 elasticsearch.hosts: ["http://<node1_internal_ip>:9200", "http://<node2_internal_ip>:9200"]
 ```
 
+Step 3:
 ```sh
 sudo /bin/systemctl daemon-reload
 sudo /bin/systemctl enable kibana.service && sudo /bin/systemctl start kibana.service
