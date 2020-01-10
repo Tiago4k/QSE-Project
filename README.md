@@ -6,7 +6,8 @@ Option 1 and 2 on work for setting up a single node cluster. For a multi-node cl
 
 ---
 ### Option 1:
-Step 1: Start by cloning this repo into the VM.
+Step 1: 
+Start by cloning this repo into the VM.
 
 ``` sh
 git clone https://github.com/Tiago4k/QSE-Project.git
@@ -39,8 +40,6 @@ node.name: es-vm
 network.host: 0.0.0.0
 discovery.seed_hosts: ["127.0.0.1", "[::1]"]
 cluster.initial_master_nodes: ["es-vm"]
-http.cors.enabled : true
-http.cors.allow-origin : "*"
 
 sudo vim /etc/kibana/kibana.yml
 
@@ -75,8 +74,6 @@ node.name: es-vm
 network.host: 0.0.0.0
 discovery.seed_hosts: ["127.0.0.1", "[::1]"]
 cluster.initial_master_nodes: ["es-vm"]
-http.cors.enabled : true
-http.cors.allow-origin : "*"
 
 sudo vim /etc/kibana/kibana.yml
 
@@ -95,7 +92,101 @@ sh /QSE-Project/scripts/process.sh
 
 ### Option 3 - Multi-node Cluster
 
+**Note, each step needs to be carried out on all the VM's provisioned.**
 
+Step 1:
+``` sh
+cd /opt
+sh /QSE-Project/scripts/storm-package.sh
+source ~/.bash_profile
+```
+
+Step 2:
+For each of the nodes in your cluster add the following:
+``` sh
+sudo vim /etc/elasticsearch/elasticsearch.yml
+
+cluster.name: ES-Stormcrawler
+
+# Give each node a unique name. E.g. es-node-1, es-node-2, etc..
+node.name: <node_name>
+node.data: true
+
+# Replace <node-#_internal_ip> with the internal ip of the current node.
+network.host: <node-#_internal_ip>
+
+# Add the internal ip of each of the nodes in your cluster. E.g. "10.10.0.1", "10.10.0.2", etc...
+discovery.seed_hosts: ["<node-1_internal_ip>", "<node-2_internal_ip>", "<node-3_internal_ip>", "<node-4_internal_ip>",
+"<node-5_internal_ip>"]
+
+# Add the internal ip of the nodes that can be master nodes when the cluster starts up. 
+cluster.initial_master_nodes: [<node-1_internal_ip>", "<node-2_internal_ip>", "<node-3_internal_ip>"]
+
+bootstrap.memory_lock: true
+```
+
+Step 3: 
+Configure memory requirements for Elasticsearch. Allocate approximately half of the avaliable memory to Elasticsearch.
+
+``` sh
+sudo vim /etc/elasticsearch/jvm.options
+
+-Xms6g
+-Xmx6g
+```
+
+Step 4:
+``` sh
+sudo vim /etc/default/elasticsearch 
+
+# Uncomment this line
+MAX_LOCKED_MEMORY=unlimited
+```
+
+Step 5:
+``` sh
+sudo vim /etc/security/limits.conf
+
+# Add at the end of the file
+
+#allow user 'elasticsearch' bootstrap.memory_lock
+elasticsearch soft memlock unlimited
+elasticsearch hard memlock unlimited
+```
+
+Step 7:
+```sh
+mkdir -p /etc/systemd/system/elasticsearch.service.d
+touch /etc/systemd/system/elasticsearch.service.d/override.conf
+```
+
+Step 8:
+``` sh
+sudo vim /etc/systemd/system/elasticsearch.service.d/override.conf
+
+# Add the following to the file
+
+[Service]
+LimitMEMLOCK=infinity
+```
+
+Step 9:
+```sh
+sudo /bin/systemctl daemon-reload
+sudo /bin/systemctl enable elasticsearch.service && sudo /bin/systemctl start elasticsearch.service
+```
+
+#### To add Kibana support, create a new VM that will only be running Kibana with the following:
+
+```sh
+sudo vim /etc/kibana/kibana.yml
+
+server.port: 5601
+server.host: "0.0.0.0"
+
+# Add the internal_ip of the nodes to the elasticsearch.host list
+elasticsearch.hosts: ["http://<node1_internal_ip>:9200", "http://<node2_internal_ip>:9200"]
+```
 
 
 ### Elasticsearch and Kibana are now live.
