@@ -92,7 +92,7 @@ sh /QSE-Project/scripts/process.sh
 
 ### Option 3 - Multi-node Cluster
 
-**Note, each step needs to be carried out on all the VM's provisioned.**
+**Note, each step needs to be completed for each of the nodes.**
 
 Step 1:
 ``` sh
@@ -199,9 +199,9 @@ sudo /bin/systemctl enable kibana.service && sudo /bin/systemctl start kibana.se
 > Kibana: http://"vm-ip-address":5601
 
 
-For information on how to crawl URLs with stormcralwer visit:
+For information on how to crawl URLs with stormcralwer visit: <br />
 https://github.com/Tiago4k/QSE-Project/tree/master/es-stormcrawler
 
-Resources:
+Resources: <br />
 https://medium.com/@tplmaps/minimal-installation-of-elasticsearch-cluster-in-production-251fc4e5fac1 <br />
 https://tecadmin.net/setup-elasticsearch-on-ubuntu/ <br />
