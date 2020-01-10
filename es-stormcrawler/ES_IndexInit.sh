@@ -1,4 +1,4 @@
-ESHOST="http://10.132.0.22:9200"
+ESHOST="http://localhost:9200"
 ESCREDENTIALS="-u elastic:passwordhere"
 
 # deletes and recreates a status index with a bespoke schema
